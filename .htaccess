@@ -1,0 +1,30 @@
+# Radio Extra-BRUT(es) — config mutualisé Apache
+#
+# Cache long pour les assets immuables (images, favicons, polices),
+# cache moyen pour CSS/JS, cache court pour HTML pour que les
+# modifications de contenu soient vues rapidement.
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg            "access plus 1 year"
+  ExpiresByType image/webp            "access plus 1 year"
+  ExpiresByType image/png             "access plus 1 year"
+  ExpiresByType image/x-icon          "access plus 1 year"
+  ExpiresByType font/woff2            "access plus 1 year"
+  ExpiresByType text/css              "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html             "access plus 1 hour"
+</IfModule>
+
+# Compression gzip pour les contenus textuels.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Redirection HTTPS (filet : la plupart des mutualisés le font déjà
+# nativement, mais on garantit ici qu'aucun accès HTTP ne passe).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
