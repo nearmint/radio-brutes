@@ -39,7 +39,8 @@
 
   <!-- Analytics -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c8b341c4-a47b-4fd4-bac8-dd0da81fac2e"></script>
-  
+  <script defer src="/tracking.js"></script>
+
   <!-- Données structurées -->
   <script type="application/ld+json">
   {
@@ -53,7 +54,7 @@
     "parentService": {
       "@type": "Organization",
       "name": "Grand Soir",
-      "url": "https://grandsoirdjs.com"
+      "url": "https://grandsoir.co"
     }
   }
   </script>
@@ -317,7 +318,7 @@
             Réessayer la connexion
           </button>
 
-          <audio id="audio-el" preload="none" crossorigin="anonymous"></audio>
+          <audio id="audio-el" data-track="player" preload="none" crossorigin="anonymous"></audio>
         </div>
 
         <!-- Tiger illustration -->
@@ -428,6 +429,8 @@
         <div class="reveal mt-8 -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-3 md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0 md:pb-0" data-delay="2">
           <button
             data-share="facebook"
+            data-track="share"
+            data-channel="facebook"
             type="button"
             class="share-btn flex w-40 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border-4 border-brutes-ink bg-brutes-cream px-4 py-5 font-semibold text-brutes-ink shadow-[4px_4px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-white md:w-auto"
             aria-label="Partager sur Facebook"
@@ -440,6 +443,8 @@
 
           <button
             data-share="instagram"
+            data-track="share"
+            data-channel="instagram"
             type="button"
             class="share-btn flex w-40 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border-4 border-brutes-ink bg-brutes-pink px-4 py-5 font-semibold text-brutes-ink shadow-[4px_4px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-white md:w-auto"
             aria-label="Copier le lien pour Instagram"
@@ -454,6 +459,8 @@
 
           <button
             data-share="whatsapp"
+            data-track="share"
+            data-channel="whatsapp"
             type="button"
             class="share-btn flex w-40 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border-4 border-brutes-ink bg-brutes-yellow px-4 py-5 font-semibold text-brutes-ink shadow-[4px_4px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-white md:w-auto"
             aria-label="Partager sur WhatsApp"
@@ -466,6 +473,8 @@
 
           <button
             data-share="mail"
+            data-track="share"
+            data-channel="mail"
             type="button"
             class="share-btn flex w-40 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border-4 border-brutes-ink bg-brutes-red px-4 py-5 font-semibold text-brutes-cream shadow-[4px_4px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-white md:w-auto"
             aria-label="Partager par mail"
@@ -571,7 +580,7 @@
       </div>
 
       <p class="mt-2 text-sm text-brutes-ink/75 md:text-base">
-        Intégrez le player sur votre site ou dans un article. Largeur adaptative, hauteur 144&nbsp;px, compatible desktop et mobile. Aucun tracking, aucun cookie.
+        Intégrez le player sur votre site ou dans un article. Largeur adaptative, hauteur 144&nbsp;px, compatible desktop et mobile. Analytics anonyme, sans cookie ni identifiant personnel.
       </p>
 
       <!-- Aperçu live -->
@@ -590,9 +599,10 @@
         </div>
       </div>
 
-      <!-- Snippet à copier -->
+      <!-- Option 1 : intégration web (iframe) -->
       <div class="mt-5">
-        <p class="mb-2 text-xs font-bold uppercase tracking-wider text-brutes-ink/70">Code à copier</p>
+        <p class="mb-1 text-xs font-bold uppercase tracking-wider text-brutes-ink/70">Pour un site web — code iframe</p>
+        <p class="mb-2 text-xs text-brutes-ink/60">Responsive, hauteur 144&nbsp;px, chargement différé.</p>
         <div class="relative rounded-xl border-2 border-brutes-ink bg-brutes-ink p-4 font-mono text-[11px] leading-relaxed text-brutes-cream md:text-xs">
 <pre id="embed-code" class="whitespace-pre-wrap break-all">&lt;iframe
   src="https://radio.salonbrutes.com/embed.html"
@@ -607,10 +617,30 @@
         <button
           type="button"
           id="embed-copy"
+          data-track="embed_code_copy"
           class="mt-3 inline-flex items-center gap-2 rounded-full border-2 border-brutes-ink bg-brutes-yellow px-4 py-2 text-sm font-bold uppercase tracking-wider text-brutes-ink shadow-[3px_3px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           <span>Copier le code</span>
+        </button>
+      </div>
+
+      <!-- Option 2 : URL du flux MP3 (radio antenne, apps) -->
+      <div class="mt-5">
+        <p class="mb-1 text-xs font-bold uppercase tracking-wider text-brutes-ink/70">Pour une radio / app — URL du flux MP3</p>
+        <p class="mb-2 text-xs text-brutes-ink/60">À utiliser dans un logiciel d'antenne ou une application audio.</p>
+        <div class="relative rounded-xl border-2 border-brutes-ink bg-brutes-ink p-4 font-mono text-[11px] leading-relaxed text-brutes-cream md:text-xs">
+<pre id="stream-url" class="whitespace-pre-wrap break-all">https://stream.grandsoir.co/listen/radio-brutes/radio.mp3</pre>
+        </div>
+        <button
+          type="button"
+          id="stream-url-copy"
+          data-track="stream_url_copy"
+          data-context="page_partenaires"
+          class="mt-3 inline-flex items-center gap-2 rounded-full border-2 border-brutes-ink bg-brutes-pink px-4 py-2 text-sm font-bold uppercase tracking-wider text-brutes-ink shadow-[3px_3px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span>Copier l'URL du flux</span>
         </button>
       </div>
 
@@ -619,7 +649,7 @@
         <ul class="mt-2 list-disc space-y-1 pl-5">
           <li>Iframe responsive 100&nbsp;% largeur, hauteur 144&nbsp;px.</li>
           <li>Flux MP3 HTML5, compatible desktop et mobile.</li>
-          <li>Chargement différé (<code class="font-mono text-xs">loading="lazy"</code>), zéro donnée visiteur.</li>
+          <li>Chargement différé, mesure d'audience anonyme et sans cookie.</li>
         </ul>
       </div>
 

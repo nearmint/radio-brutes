@@ -200,8 +200,14 @@ function renderSchedule(days) {
         </li>`;
     }).join('');
 
+    // data-day est utilisé par tracking.js (schedule_view). On ne le pose
+    // que pour samedi (6) et dimanche (0), les seuls jours taggués selon
+    // la taxonomie ; les autres jours sont ignorés par l'observer.
+    const dow = day.date.getDay();
+    const dayAttr = dow === 6 ? ' data-day="samedi"' : dow === 0 ? ' data-day="dimanche"' : '';
+
     return `
-      <article class="mb-10 last:mb-0">
+      <article class="mb-10 last:mb-0" data-track="schedule"${dayAttr}>
         <h3 class="font-display text-2xl font-extrabold uppercase tracking-tight text-brutes-teal md:text-3xl">
           ${escapeHtml(formatDateLong(day.date))}
         </h3>
@@ -212,6 +218,12 @@ function renderSchedule(days) {
   }).join('');
 
   scheduleRoot.innerHTML = html;
+
+  // Notifie tracking.js (s'il est chargé) pour observer les nouveaux
+  // articles via IntersectionObserver. Noop si tracking.js est bloqué.
+  if (typeof window.__trackingRefreshSchedule === 'function') {
+    window.__trackingRefreshSchedule();
+  }
 }
 
 let scheduleRetryScheduled = false;
