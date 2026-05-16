@@ -4,8 +4,8 @@
   <script>document.documentElement.classList.add('js');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radio Extra-BRUT(es) — en direct les 16 et 17 mai</title>
-  <meta name="description" content="Une radio éphémère diffusera en direct depuis le Salon Brut(es) #5, les 16 et 17 mai à Regnéville-sur-Mer. Interviews de vigneron·ne·s et cidrier·e·s, DJ sets et concerts." />
+  <title>Radio Extra-BRUT(es) — En direct du Salon Extra-BRUT(es) #5</title>
+  <meta name="description" content="La radio éphémère du Salon Extra-BRUT(es) #5 : mi-vins nature / mi-cidres d’auteur·e·s, sous chapiteau face à la Baie de Sienne. Interviews, DJ sets et concerts en direct de Regnéville-sur-Mer, les 16 et 17 mai 2026." />
   <meta name="theme-color" content="#F4C430" />
   <meta name="author" content="Grand Soir" />
   <link rel="canonical" href="https://radio.salonbrutes.com/" />
@@ -18,8 +18,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Radio Extra-BRUT(es)" />
-  <meta property="og:title" content="Radio Extra-BRUT(es) — en direct les 16 et 17 mai" />
-  <meta property="og:description" content="Une radio éphémère diffusera en direct depuis le Salon Brut(es) #5, les 16 et 17 mai à Regnéville-sur-Mer. Interviews de vigneron·ne·s et cidrier·e·s, DJ sets et concerts." />
+  <meta property="og:title" content="Radio Extra-BRUT(es) — la radio du Salon Extra-BRUT(es) #5" />
+  <meta property="og:description" content="Deux jours de radio en direct depuis le Salon Extra-BRUT(es) #5 à Regnéville-sur-Mer : interviews animées par Dominique Hutin, DJ sets et concerts. 16 & 17 mai 2026, face à la Baie de Sienne." />
   <meta property="og:url" content="https://radio.salonbrutes.com/" />
   <meta property="og:image" content="https://grandsoir.co/brutes/assets/tigre.jpg" />
   <meta property="og:image:alt" content="Illustration du tigre mascotte du Salon Extra-BRUT(es) par @tschiegg69" />
@@ -29,8 +29,8 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Radio Extra-BRUT(es) — en direct les 16 et 17 mai" />
-  <meta name="twitter:description" content="Une radio éphémère diffusera en direct depuis le Salon Brut(es) #5, les 16 et 17 mai à Regnéville-sur-Mer. Interviews de vigneron·ne·s et cidrier·e·s, DJ sets et concerts." />
+  <meta name="twitter:title" content="Radio Extra-BRUT(es) — la radio du Salon Extra-BRUT(es) #5" />
+  <meta name="twitter:description" content="Interviews, DJ sets, concerts. 16 & 17 mai 2026, en direct de Regnéville-sur-Mer." />
   <meta name="twitter:image" content="https://grandsoir.co/brutes/assets/tigre.jpg" />
   <meta name="twitter:image:alt" content="Illustration du tigre mascotte du Salon Extra-BRUT(es) par @tschiegg69" />
 
@@ -54,7 +54,7 @@
     "parentService": {
       "@type": "Organization",
       "name": "Grand Soir",
-      "url": "https://grandsoir.co/"
+      "url": "https://grandsoir.co"
     }
   }
   </script>
@@ -114,6 +114,13 @@
       animation: spin-ring 0.9s linear infinite;
     }
 
+    /* Bouton play en Off Air : visuellement inactif, clic bloqué */
+    .play-disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
     /* Reveal on scroll — actif seulement si JS est chargé (classe .js sur <html>) */
     @keyframes reveal-up {
       from { opacity: 0; transform: translateY(20px); }
@@ -151,6 +158,52 @@
 
     /* (le bloc prefers-reduced-motion est fusionné plus bas) */
 
+    /* Embed modal */
+    #embed-modal {
+      max-width: 36rem;
+      width: calc(100% - 2rem);
+      padding: 0;
+      border: 4px solid #1A1A1A;
+      border-radius: 1rem;
+      background: #FAF6EC;
+      color: #1A1A1A;
+      box-shadow: 8px 8px 0 0 #1A1A1A;
+    }
+    #embed-modal::backdrop {
+      background: rgba(26, 26, 26, 0.55);
+      backdrop-filter: blur(2px);
+    }
+    #embed-modal[open] {
+      animation: dialog-in 220ms cubic-bezier(0.22, 0.65, 0.2, 1);
+    }
+    @keyframes dialog-in {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0)   scale(1); }
+    }
+
+    /* ---- Défilement ligne 2 du player (cas playlist) ----
+       Marquee CSS-only : la ligne 2 est wrappée dans un <span> quand le
+       texte déborde. `padding-left: 100%` pousse le texte au-delà du bord
+       droit, puis l'animation le translate de -100% (containerWidth +
+       textWidth) → texte sort par la gauche, réapparaît par la droite,
+       créant une pause naturelle entre les passages. Vitesse = 40 px/s. */
+    .np-marquee-track {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .np-scrolling {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .np-scrolling .np-marquee-track {
+      padding-left: 100%;
+      animation: np-scroll var(--np-scroll-duration, 15s) linear infinite;
+    }
+    @keyframes np-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-100%); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .onair-pulse { animation: none; }
       .play-loading::after { animation: none; }
@@ -161,6 +214,9 @@
       .tigre-card:hover,
       .tigre-card:focus-within { transform: rotate(-1.5deg); box-shadow: 8px 8px 0 0 #1A1A1A; }
       .tigre-card:hover .tigre-img { transform: none; }
+      #embed-modal[open] { animation: none; }
+      /* Pas de défilement → fallback ellipsis via .truncate qui reste actif */
+      .np-scrolling .np-marquee-track { animation: none; padding-left: 0; }
     }
   </style>
 </head>
@@ -199,59 +255,70 @@
     >
       <div class="mx-auto grid max-w-6xl gap-8 px-5 py-10 md:grid-cols-2 md:items-center md:gap-12 md:px-8 md:py-20">
 
-        <!-- Teasing column -->
-        <div class="flex flex-col items-start reveal">
-
-          <h1 id="hero-title" class="font-display text-5xl font-extrabold leading-[0.95] md:text-7xl">
-            Bientôt<br />
-            en direct<span class="text-brutes-red">.</span>
-          </h1>
-          <p class="mt-4 max-w-md text-base font-medium md:text-lg">
-            Une radio éphémère prendra l’antenne pendant les deux jours du Salon Extra-BRUT(es) : le premier salon à mêler à parts égales vins nature, cidres et poirés d’auteur·e·s. Les <time datetime="2026-05-16T11:00:00+02:00">16 et 17 mai</time>, sous chapiteau à Regnéville-sur-Mer, face à la Baie de Sienne.
-          </p>
-
-          <!-- Countdown -->
-          <div
-            class="mt-8 w-full max-w-md"
-            aria-label="Temps restant avant l’ouverture du salon"
-          >
-            <div class="grid grid-cols-3 gap-2 md:gap-3">
-              <div data-countdown-block class="rounded-2xl border-4 border-brutes-ink bg-brutes-cream px-2 py-3 text-center shadow-[4px_4px_0_0_#1A1A1A] md:px-3 md:py-4">
-                <div data-countdown="days" class="font-display text-3xl font-extrabold tabular-nums leading-none md:text-5xl">—</div>
-                <div class="mt-1 text-[10px] font-bold uppercase tracking-widest text-brutes-ink/70 md:mt-2 md:text-xs">jours</div>
-              </div>
-              <div data-countdown-block class="rounded-2xl border-4 border-brutes-ink bg-brutes-cream px-2 py-3 text-center shadow-[4px_4px_0_0_#1A1A1A] md:px-3 md:py-4">
-                <div data-countdown="hours" class="font-display text-3xl font-extrabold tabular-nums leading-none md:text-5xl">—</div>
-                <div class="mt-1 text-[10px] font-bold uppercase tracking-widest text-brutes-ink/70 md:mt-2 md:text-xs">heures</div>
-              </div>
-              <div data-countdown-block class="rounded-2xl border-4 border-brutes-ink bg-brutes-cream px-2 py-3 text-center shadow-[4px_4px_0_0_#1A1A1A] md:px-3 md:py-4">
-                <div data-countdown="minutes" class="font-display text-3xl font-extrabold tabular-nums leading-none md:text-5xl">—</div>
-                <div class="mt-1 text-[10px] font-bold uppercase tracking-widest text-brutes-ink/70 md:mt-2 md:text-xs">minutes</div>
-              </div>
-            </div>
-            <p
-              data-countdown-passed
-              hidden
-              class="mt-3 rounded-2xl border-4 border-brutes-ink bg-brutes-red px-4 py-3 text-center font-display text-lg font-extrabold text-white shadow-[4px_4px_0_0_#1A1A1A]"
+        <!-- Player column -->
+        <!-- min-w-0 : indispensable pour que truncate/marquee sur np-title
+             fonctionnent quand le texte dépasse (sans ça la grid cell et toute
+             la chaîne flex grossissent avec le contenu, scrollWidth === clientWidth). -->
+        <div class="flex min-w-0 flex-col items-start reveal">
+          <div class="mb-4 flex items-center gap-3">
+            <span
+              id="onair-badge"
+              class="onair-pulse inline-flex items-center gap-2 rounded-full border-2 border-brutes-ink bg-brutes-red px-3 py-1 text-xs font-bold uppercase tracking-widest text-white"
+              aria-live="polite"
             >
-              Le salon a commencé — rendez-vous à Regnéville.
-            </p>
+              <span id="onair-dot" class="h-2 w-2 rounded-full bg-white"></span>
+              <span id="onair-label">On air</span>
+            </span>
           </div>
 
-          <!-- CTA Instagram -->
-          <a
-            href="https://www.instagram.com/salonbrutes/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-brutes-ink bg-brutes-pink px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-brutes-ink shadow-[3px_3px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_#1A1A1A] focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40 md:text-sm md:px-4 md:py-2"
+          <h1 id="hero-title" class="font-display text-5xl font-extrabold leading-[0.95] md:text-7xl">
+            En direct<br />
+            de Regnéville<span class="text-brutes-red">.</span>
+          </h1>
+          <p class="mt-4 max-w-md text-base font-medium md:text-lg">
+            Interviews, DJ sets et concerts, avec les vigneron·ne·s, cidrier·ère·s et poiréculteur·rice·s du salon. Les 16 et 17 mai 2026, de 11h à tard dans la nuit.
+          </p>
+
+          <!-- Player controls -->
+          <div class="mt-8 flex w-full min-w-0 items-center gap-5">
+            <button
+              id="play-btn"
+              type="button"
+              aria-label="Lancer la radio"
+              aria-pressed="false"
+              class="relative flex h-20 w-20 items-center justify-center rounded-full border-4 border-brutes-ink bg-brutes-red text-white shadow-[4px_4px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#1A1A1A] focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40 active:translate-y-0 active:shadow-[2px_2px_0_0_#1A1A1A] md:h-24 md:w-24"
+            >
+              <!-- Play icon -->
+              <svg id="icon-play" width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M7 4.5v15a1 1 0 0 0 1.52.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5z" />
+              </svg>
+              <!-- Pause icon -->
+              <svg id="icon-pause" class="hidden" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <rect x="6" y="4.5" width="4.5" height="15" rx="1" />
+                <rect x="13.5" y="4.5" width="4.5" height="15" rx="1" />
+              </svg>
+            </button>
+
+            <div id="now-playing" class="min-w-0 flex-1" aria-live="polite">
+              <p id="np-title" class="truncate font-display text-lg font-bold md:text-xl">
+                Radio Extra-BRUT(es)
+              </p>
+              <p id="np-artist" class="truncate text-sm text-brutes-ink/70 md:text-base">
+                En direct de Regnéville-sur-Mer
+              </p>
+            </div>
+          </div>
+
+          <!-- Retry (hidden by default) -->
+          <button
+            id="retry-btn"
+            type="button"
+            class="mt-4 hidden rounded-full border-2 border-brutes-ink bg-white px-4 py-1.5 text-sm font-semibold hover:bg-brutes-ink hover:text-brutes-cream"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-            </svg>
-            Suivre @salonbrutes
-          </a>
+            Réessayer la connexion
+          </button>
+
+          <audio id="audio-el" data-track="player" preload="none" crossorigin="anonymous"></audio>
         </div>
 
         <!-- Tiger illustration -->
@@ -292,7 +359,12 @@
         </h2>
         <div class="mt-6 grid gap-6 md:grid-cols-2 md:gap-10">
           <p class="reveal text-lg leading-relaxed md:text-xl" data-delay="1">
-            <strong>Radio Extra-BRUT(es)</strong> est la radio éphémère du salon. Installée au cœur des chapiteaux, elle diffuse en direct pendant toute la durée de l'événement : <strong>samedi et dimanche de 11h à tard dans la nuit</strong>. À écouter sur place en se baladant entre les stands, ou à distance depuis chez soi.
+            Une radio éphémère qui prend l’antenne pendant les deux jours du
+            <strong>Salon Extra-BRUT(es)</strong>&nbsp;: le premier salon à mêler
+            à parts égales les <strong>vins nature</strong>, les
+            <strong>cidres et poirés d’auteur·e·s</strong>.
+            Les <strong>16 et 17 mai 2026</strong>, sous chapiteau à Regnéville-sur-Mer,
+            face à la Baie de Sienne.
           </p>
           <p class="reveal text-lg leading-relaxed md:text-xl" data-delay="2">
             Au programme&nbsp;: des <strong>interviews</strong> menées en direct par le journaliste
@@ -348,10 +420,10 @@
     <section aria-labelledby="share-title" class="border-b-4 border-brutes-ink bg-brutes-teal text-brutes-cream">
       <div class="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
         <h2 id="share-title" class="reveal font-display text-4xl font-extrabold md:text-5xl">
-          Faire circuler l’info
+          Partager la radio
         </h2>
         <p class="reveal mt-2 text-base text-brutes-cream" data-delay="1">
-          Aidez-nous à faire connaître la radio avant son lancement.
+          Aidez-nous à faire passer le mot autour de vous.
         </p>
 
         <div class="reveal mt-8 -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-3 md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0 md:pb-0" data-delay="2">
@@ -415,6 +487,19 @@
           </button>
         </div>
 
+        <div class="reveal mt-8 flex items-center gap-2 text-sm text-brutes-cream" data-delay="3">
+          <span>Partenaire&nbsp;?</span>
+          <button
+            type="button"
+            id="embed-open"
+            class="inline-flex items-center gap-1.5 font-semibold text-brutes-cream underline decoration-brutes-cream/40 decoration-2 underline-offset-4 transition-colors hover:decoration-brutes-yellow focus:outline-none focus-visible:decoration-brutes-yellow"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+            Intégrer le player sur votre site
+          </button>
+        </div>
       </div>
     </section>
 
@@ -477,6 +562,114 @@
     </div>
   </footer>
 
+  <!-- Embed modal -->
+  <dialog id="embed-modal" aria-labelledby="embed-title">
+    <div class="p-5 md:p-7">
+      <div class="flex items-start justify-between gap-4">
+        <h3 id="embed-title" class="font-display text-2xl font-extrabold md:text-3xl">
+          Intégrer le player
+        </h3>
+        <button
+          type="button"
+          data-embed-close
+          aria-label="Fermer"
+          class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-brutes-ink bg-brutes-cream shadow-[2px_2px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <p class="mt-2 text-sm text-brutes-ink/75 md:text-base">
+        Intégrez le player sur votre site ou dans un article. Largeur adaptative, hauteur 144&nbsp;px, compatible desktop et mobile. Analytics anonyme, sans cookie ni identifiant personnel.
+      </p>
+
+      <!-- Aperçu live -->
+      <div class="mt-5">
+        <p class="mb-2 text-xs font-bold uppercase tracking-wider text-brutes-ink/70">Aperçu</p>
+        <div>
+          <iframe
+            src="https://radio.salonbrutes.com/embed.html"
+            width="100%"
+            height="144"
+            frameborder="0"
+            loading="lazy"
+            title="Aperçu du lecteur Radio Extra-BRUT(es)"
+            class="block"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Option 1 : intégration web (iframe) -->
+      <div class="mt-5">
+        <p class="mb-1 text-xs font-bold uppercase tracking-wider text-brutes-ink/70">Pour un site web — code iframe</p>
+        <p class="mb-2 text-xs text-brutes-ink/60">Responsive, hauteur 144&nbsp;px, chargement différé.</p>
+        <div class="relative rounded-xl border-2 border-brutes-ink bg-brutes-ink p-4 font-mono text-[11px] leading-relaxed text-brutes-cream md:text-xs">
+<pre id="embed-code" class="whitespace-pre-wrap break-all">&lt;iframe
+  src="https://radio.salonbrutes.com/embed.html"
+  width="100%"
+  height="144"
+  frameborder="0"
+  title="Radio Extra-BRUT(es) — Lecteur"
+  loading="lazy"
+  allow="autoplay"
+&gt;&lt;/iframe&gt;</pre>
+        </div>
+        <button
+          type="button"
+          id="embed-copy"
+          data-track="embed_code_copy"
+          class="mt-3 inline-flex items-center gap-2 rounded-full border-2 border-brutes-ink bg-brutes-yellow px-4 py-2 text-sm font-bold uppercase tracking-wider text-brutes-ink shadow-[3px_3px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span>Copier le code</span>
+        </button>
+      </div>
+
+      <!-- Option 2 : URL du flux MP3 (radio antenne, apps) -->
+      <div class="mt-5">
+        <p class="mb-1 text-xs font-bold uppercase tracking-wider text-brutes-ink/70">Pour une radio / app — URL du flux MP3</p>
+        <p class="mb-2 text-xs text-brutes-ink/60">À utiliser dans un logiciel d'antenne ou une application audio.</p>
+        <div class="relative rounded-xl border-2 border-brutes-ink bg-brutes-ink p-4 font-mono text-[11px] leading-relaxed text-brutes-cream md:text-xs">
+<pre id="stream-url" class="whitespace-pre-wrap break-all">https://stream.grandsoir.co/listen/radio-brutes/radio.mp3</pre>
+        </div>
+        <button
+          type="button"
+          id="stream-url-copy"
+          data-track="stream_url_copy"
+          data-context="page_partenaires"
+          class="mt-3 inline-flex items-center gap-2 rounded-full border-2 border-brutes-ink bg-brutes-pink px-4 py-2 text-sm font-bold uppercase tracking-wider text-brutes-ink shadow-[3px_3px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span>Copier l'URL du flux</span>
+        </button>
+      </div>
+
+      <div class="mt-6 rounded-xl border-2 border-brutes-ink/20 bg-brutes-pink/40 p-4 text-sm text-brutes-ink/85">
+        <h4 class="font-display text-sm font-extrabold uppercase tracking-wider">Côté technique</h4>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <li>Iframe responsive 100&nbsp;% largeur, hauteur 144&nbsp;px.</li>
+          <li>Flux MP3 HTML5, compatible desktop et mobile.</li>
+          <li>Chargement différé, mesure d'audience anonyme et sans cookie.</li>
+        </ul>
+      </div>
+
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <span class="text-sm text-brutes-ink/70">Une question ?</span>
+        <button
+          type="button"
+          id="embed-contact"
+          data-em-l="nicolasrapp"
+          data-em-d="me.com"
+          data-em-s="Radio Extra-BRUT(es) — embed player"
+          class="inline-flex items-center gap-2 rounded-full border-2 border-brutes-ink bg-brutes-cream px-3 py-1.5 text-sm font-semibold text-brutes-ink shadow-[2px_2px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Écrire au contact technique
+        </button>
+      </div>
+    </div>
+  </dialog>
+
   <!-- Toast container -->
   <div
     id="toast"
@@ -491,6 +684,6 @@
     </div>
   </div>
 
-  <script type="module" src="waiting.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
