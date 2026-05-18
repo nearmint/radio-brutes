@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>document.documentElement.classList.add('js');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radio Extra-BRUT(es) — L'édition #5 est terminée</title>
+  <meta name="description" content="L'édition #5 du Salon Extra-BRUT(es) est terminée. Merci à toutes et tous, rendez-vous pour la prochaine édition. Les interviews seront bientôt à réécouter." />
+  <meta name="theme-color" content="#F4C430" />
+  <meta name="author" content="Grand Soir" />
+  <link rel="canonical" href="https://radio.salonbrutes.com/" />
+
+  <!-- Favicons (dérivés de l'illustration @tschiegg69) -->
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Radio Extra-BRUT(es)" />
+  <meta property="og:title" content="Radio Extra-BRUT(es) — L'édition #5 est terminée" />
+  <meta property="og:description" content="L'édition #5 du Salon Extra-BRUT(es) est terminée. Merci à toutes et tous, rendez-vous pour la prochaine édition. Les interviews seront bientôt à réécouter." />
+  <meta property="og:url" content="https://radio.salonbrutes.com/" />
+  <meta property="og:image" content="https://grandsoir.co/brutes/assets/tigre.jpg" />
+  <meta property="og:image:alt" content="Illustration du tigre mascotte du Salon Extra-BRUT(es) par @tschiegg69" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Radio Extra-BRUT(es) — L'édition #5 est terminée" />
+  <meta name="twitter:description" content="L'édition #5 du Salon Extra-BRUT(es) est terminée. Les interviews seront bientôt à réécouter." />
+  <meta name="twitter:image" content="https://grandsoir.co/brutes/assets/tigre.jpg" />
+  <meta name="twitter:image:alt" content="Illustration du tigre mascotte du Salon Extra-BRUT(es) par @tschiegg69" />
+
+  <!-- Crawlers -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <!-- Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="c8b341c4-a47b-4fd4-bac8-dd0da81fac2e"></script>
+  <script defer src="/tracking-after.js"></script>
+
+  <!-- Données structurées -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Salon Extra-BRUT(es) #5 — Radio en direct",
+    "description": "L'édition #5 du Salon Extra-BRUT(es) — premier salon mi-vins nature / mi-cidres d'auteur·e·s — s'est tenue les 16 et 17 mai 2026 à Regnéville-sur-Mer, avec interviews, DJ sets et concerts en direct.",
+    "startDate": "2026-05-16T11:00:00+02:00",
+    "endDate": "2026-05-17T18:00:00+02:00",
+    "eventStatus": "https://schema.org/EventCompleted",
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Regnéville-sur-Mer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Regnéville-sur-Mer",
+        "addressCountry": "FR"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Grand Soir",
+      "url": "https://grandsoir.co"
+    },
+    "inLanguage": "fr-FR",
+    "url": "https://radio.salonbrutes.com/"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brutes-yellow': '#F4C430',
+            'brutes-pink':   '#F5C5CE',
+            'brutes-teal':   '#1F7A7A',
+            'brutes-red':    '#9B2C2C',
+            'brutes-ink':    '#1A1A1A',
+            'brutes-cream':  '#FAF6EC',
+            'brutes-green':  '#2F7A3C',
+          },
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+            sans:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-display { font-family: 'Bricolage Grotesque', system-ui, sans-serif; letter-spacing: -0.02em; }
+    .brand-title {
+      -webkit-text-stroke: 0.8px currentColor;
+      letter-spacing: -0.035em;
+    }
+
+    /* Reveal on scroll — actif seulement si JS est chargé (classe .js sur <html>) */
+    @keyframes reveal-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .js .reveal { opacity: 0; will-change: opacity, transform; }
+    .js .reveal.is-revealed {
+      animation: reveal-up 700ms cubic-bezier(0.22, 0.65, 0.2, 1) forwards;
+    }
+    .reveal[data-delay="1"].is-revealed { animation-delay: 90ms; }
+    .reveal[data-delay="2"].is-revealed { animation-delay: 180ms; }
+    .reveal[data-delay="3"].is-revealed { animation-delay: 270ms; }
+    .reveal[data-delay="4"].is-revealed { animation-delay: 360ms; }
+
+    /* Hero entrance */
+    @keyframes drop-in {
+      from { opacity: 0; transform: translateY(-14px) rotate(-3deg); }
+      to   { opacity: 1; transform: translateY(0) rotate(-1.5deg); }
+    }
+    .drop-in { animation: drop-in 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+    /* Tiger hover */
+    .tigre-card {
+      transition:
+        transform 500ms cubic-bezier(0.22, 0.65, 0.2, 1),
+        box-shadow 500ms cubic-bezier(0.22, 0.65, 0.2, 1);
+    }
+    .tigre-card:hover,
+    .tigre-card:focus-within {
+      transform: rotate(0deg) translateY(-2px);
+      box-shadow: 12px 12px 0 0 #1A1A1A;
+    }
+    .tigre-img { transition: transform 900ms cubic-bezier(0.22, 0.65, 0.2, 1); }
+    .tigre-card:hover .tigre-img { transform: scale(1.03); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; }
+      .reveal.is-revealed { animation: none; }
+      .drop-in { animation: none; }
+      .tigre-card, .tigre-img { transition: none; }
+      .tigre-card:hover,
+      .tigre-card:focus-within { transform: rotate(-1.5deg); box-shadow: 8px 8px 0 0 #1A1A1A; }
+      .tigre-card:hover .tigre-img { transform: none; }
+    }
+  </style>
+</head>
+
+<body class="bg-brutes-cream text-brutes-ink antialiased">
+
+  <!-- Header -->
+  <header class="border-b-4 border-brutes-ink bg-brutes-yellow">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-4 md:gap-4 md:px-8">
+      <a
+        href="#top"
+        class="brand-title font-display text-xl font-extrabold tracking-tight whitespace-nowrap md:text-3xl"
+      >
+        RADIO EXTRA-BRUT(ES)
+      </a>
+      <a
+        href="https://www.salonbrutes.com/infos-pratiques-1"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Venir au Salon Extra-BRUT(es)"
+        class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brutes-ink bg-brutes-green px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-brutes-cream shadow-[3px_3px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_#1A1A1A] focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40 md:gap-2 md:text-sm md:px-4 md:py-2"
+      >
+        <span class="md:hidden">Salon</span>
+        <span class="hidden md:inline">Venir au salon</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section
+      aria-labelledby="hero-title"
+      class="relative overflow-hidden border-b-4 border-brutes-ink bg-brutes-yellow"
+    >
+      <div class="mx-auto grid max-w-6xl gap-8 px-5 py-10 md:grid-cols-2 md:items-center md:gap-12 md:px-8 md:py-20">
+
+        <!-- Text + status column -->
+        <div class="flex min-w-0 flex-col items-start reveal">
+          <div class="mb-4 flex items-center gap-3">
+            <span
+              class="inline-flex items-center gap-2 rounded-full border-2 border-brutes-ink bg-brutes-ink px-3 py-1 text-xs font-bold uppercase tracking-widest text-brutes-cream"
+            >
+              <span class="h-2 w-2 rounded-full bg-brutes-cream/70"></span>
+              <span>Hors antenne</span>
+            </span>
+          </div>
+
+          <h1 id="hero-title" class="font-display text-5xl font-extrabold leading-[0.95] md:text-7xl">
+            L'édition #5<br />
+            est terminée<span class="text-brutes-red">.</span>
+          </h1>
+          <p class="mt-4 max-w-md text-base font-medium md:text-lg">
+            Merci à toutes et tous, rendez-vous pour la prochaine édition.
+          </p>
+          <p class="mt-2 max-w-md text-sm font-semibold uppercase tracking-wider text-brutes-ink/70">
+            Regnéville-sur-Mer · 16 &amp; 17 mai 2026
+          </p>
+
+          <!-- Encart "Le direct est terminé" -->
+          <div class="mt-8 flex w-full min-w-0 items-start gap-5 rounded-2xl border-4 border-brutes-ink bg-brutes-cream p-5 shadow-[6px_6px_0_0_#1A1A1A] md:p-6">
+            <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border-4 border-brutes-ink bg-brutes-red text-brutes-cream md:h-20 md:w-20" aria-hidden="true">
+              <!-- "Stop" : carré plein, signal coupé -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="6" width="12" height="12" rx="1.5" />
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="font-display text-xl font-extrabold leading-tight md:text-2xl">
+                Le direct est terminé.
+              </p>
+              <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">
+                Les interviews seront bientôt disponibles à la réécoute.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tiger illustration -->
+        <div class="relative order-first md:order-last reveal" data-delay="1">
+          <div class="tigre-card drop-in rotate-[-1.5deg] overflow-hidden rounded-2xl border-4 border-brutes-ink bg-brutes-pink shadow-[8px_8px_0_0_#1A1A1A]">
+            <picture>
+              <source srcset="assets/tigre.webp" type="image/webp" />
+              <img
+                src="assets/tigre.jpg"
+                alt="Illustration d’un tigre, mascotte du Salon Extra-BRUT(es)"
+                class="tigre-img block h-full w-full object-cover"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                width="800" height="800"
+              />
+            </picture>
+          </div>
+          <p class="mt-3 text-right text-xs font-medium text-brutes-ink/70">
+            © illustration
+            <a
+              href="https://www.instagram.com/tschiegg69/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline decoration-brutes-ink/40 decoration-2 underline-offset-2 hover:text-brutes-ink hover:decoration-brutes-ink focus:outline-none focus-visible:text-brutes-ink"
+            >@tschiegg69</a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section aria-labelledby="about-title" class="border-b-4 border-brutes-ink bg-brutes-pink">
+      <div class="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
+        <h2 id="about-title" class="reveal font-display text-4xl font-extrabold md:text-5xl">
+          C’est quoi Radio Extra-BRUT(es) ?
+        </h2>
+        <div class="mt-6 grid gap-6 md:grid-cols-2 md:gap-10">
+          <p class="reveal text-lg leading-relaxed md:text-xl" data-delay="1">
+            Une radio éphémère qui a pris l’antenne pendant les deux jours du
+            <strong>Salon Extra-BRUT(es)</strong>&nbsp;: le premier salon à mêler
+            à parts égales les <strong>vins nature</strong>, les
+            <strong>cidres et poirés d’auteur·e·s</strong>.
+            Les <strong>16 et 17 mai 2026</strong>, sous chapiteau à Regnéville-sur-Mer,
+            face à la Baie de Sienne.
+          </p>
+          <p class="reveal text-lg leading-relaxed md:text-xl" data-delay="2">
+            Au programme&nbsp;: des <strong>interviews</strong> menées en direct par le journaliste
+            <strong>Dominique Hutin</strong> avec les vigneron·ne·s, cidrier·ère·s et
+            poiréculteur·rice·s présent·e·s, des <strong>DJ sets</strong>, des concerts et
+            de la musique toute la journée. De la joie, de la douce ivresse, et l’air marin en bande-son.
+          </p>
+        </div>
+
+        <div class="reveal mt-10 flex" data-delay="3">
+          <a
+            href="https://www.instagram.com/salonbrutes/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border-2 border-brutes-ink bg-brutes-pink px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-brutes-ink shadow-[3px_3px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_#1A1A1A] focus:outline-none focus-visible:ring-4 focus-visible:ring-brutes-ink/40 md:text-sm md:px-4 md:py-2"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            Suivre @salonbrutes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programme -->
+    <section aria-labelledby="schedule-title" class="border-b-4 border-brutes-ink bg-brutes-cream">
+      <div class="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
+        <h2 id="schedule-title" class="reveal font-display text-4xl font-extrabold md:text-5xl">
+          Le programme qui a été diffusé
+        </h2>
+        <p class="reveal mt-2 text-base text-brutes-ink/70" data-delay="1">
+          Interviews menées par le journaliste Dominique Hutin, spécialiste du cidre
+          <a
+            href="https://www.instagram.com/hutin1v2v/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-semibold text-brutes-ink underline decoration-brutes-ink/30 decoration-2 underline-offset-2 hover:decoration-brutes-ink focus:outline-none focus-visible:decoration-brutes-red"
+          >(@hutin1v2v)</a>.
+        </p>
+
+        <!-- Bandeau replay à venir -->
+        <div class="reveal mt-6 rounded-xl border-2 border-brutes-ink bg-brutes-yellow px-5 py-3 text-sm font-semibold text-brutes-ink md:text-base" data-delay="1">
+          Les interviews seront bientôt à réécouter ici.
+        </div>
+
+        <div class="reveal mt-8" data-delay="2">
+
+          <article class="mb-10" data-track="schedule" data-day="samedi">
+            <h3 class="font-display text-2xl font-extrabold uppercase tracking-tight text-brutes-teal md:text-3xl">
+              Samedi 16 mai
+            </h3>
+            <ul class="mt-4 border-t-2 border-brutes-ink/10">
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">11h00 – 12h30</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-teal text-white">DJ Set</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Finch Resonator &amp; MK ULTRA</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Ambient &amp; Drone</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">12h30 – 13h30</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-red text-white">Interview</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Le vin normand, une histoire contemporaine</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Avec Sébastien Pascot</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">14h00 – 15h00</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-red text-white">Interview</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Cépages et âge des ceps, penser l'avenir</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Avec Jean Christophe Pellerin</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">16h30 – 17h30</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-red text-white">Interview</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Le Cormé, cousin du cidre et bulles du futur ?</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Avec Arnould Nazarian</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">17h00 – 19h30</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-teal text-white">DJ Set</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Grand Soir</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">DJ Set 100% Vinyle</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">19h30 – 22h30</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-teal text-white">DJ Set</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Le Comptoir à Vinyle</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">DJ Set 100% Vinyle</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">22h30 – 23h30</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-green text-brutes-cream">Concert</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Losanges</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Afrobeat &amp; Funk</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">23h30 – 02h00</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-teal text-white">DJ Set</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">DJ Dard &amp; Phuncky Doyen</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Dancefloor</p>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="mb-0" data-track="schedule" data-day="dimanche">
+            <h3 class="font-display text-2xl font-extrabold uppercase tracking-tight text-brutes-teal md:text-3xl">
+              Dimanche 17 mai
+            </h3>
+            <ul class="mt-4 border-t-2 border-brutes-ink/10">
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">11h30 – 12h30</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-red text-white">Interview</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Tenir ? Partir ? Planter ?</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Avec Julie Reux — Journaliste — VinoFutur</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">12h30 – 13h15</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-green text-brutes-cream">Concert</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Losanges</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Afrobeat &amp; Funk</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">14h00 – 14h45</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-green text-brutes-cream">Concert</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Los Pulpos del Norte</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Latino &amp; Cumbia (En partenariat avec Coutances tourisme)</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">15h00 – 16h00</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-red text-white">Interview</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Cidricultrice, pour changer d'atmosphère</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Avec Sophie Ammann</p>
+                </div>
+              </li>
+              <li class="flex flex-col gap-2 border-b-2 border-brutes-ink/10 py-5 md:flex-row md:gap-6">
+                <div class="flex shrink-0 items-start gap-3 md:w-60 md:flex-col md:items-start md:gap-2">
+                  <span class="font-display text-2xl font-extrabold tabular-nums md:whitespace-nowrap md:text-3xl">17h00 – 18h00</span>
+                  <span class="inline-flex items-center rounded-full border-2 border-brutes-ink px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-brutes-red text-white">Interview</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-xl font-bold md:text-2xl">Cidre, Miel et Pollinisation</p>
+                  <p class="mt-1 text-sm text-brutes-ink/70 md:text-base">Avec Julien Thurel</p>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Partager -->
+    <section aria-labelledby="share-title" class="border-b-4 border-brutes-ink bg-brutes-teal text-brutes-cream">
+      <div class="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
+        <h2 id="share-title" class="reveal font-display text-4xl font-extrabold md:text-5xl">
+          Partager la radio
+        </h2>
+        <p class="reveal mt-2 text-base text-brutes-cream" data-delay="1">
+          Le replay des interviews arrive bientôt — aidez-nous à faire passer le mot.
+        </p>
+
+        <div class="reveal mt-8 -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-3 md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0 md:pb-0" data-delay="2">
+          <button
+            data-share="facebook"
+            data-track="share"
+            data-channel="facebook"
+            type="button"
+            class="share-btn flex w-40 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border-4 border-brutes-ink bg-brutes-cream px-4 py-5 font-semibold text-brutes-ink shadow-[4px_4px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-white md:w-auto"
+            aria-label="Partager sur Facebook"
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13 22v-8h2.7l.4-3.1H13V8.9c0-.9.3-1.5 1.6-1.5H16V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.3H7V14h2.6v8H13z"/>
+            </svg>
+            <span class="text-sm">Facebook</span>
+          </button>
+
+          <button
+            data-share="instagram"
+            data-track="share"
+            data-channel="instagram"
+            type="button"
+            class="share-btn flex w-40 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border-4 border-brutes-ink bg-brutes-pink px-4 py-5 font-semibold text-brutes-ink shadow-[4px_4px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-white md:w-auto"
+            aria-label="Copier le lien pour Instagram"
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="text-sm">Instagram</span>
+          </button>
+
+          <button
+            data-share="whatsapp"
+            data-track="share"
+            data-channel="whatsapp"
+            type="button"
+            class="share-btn flex w-40 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border-4 border-brutes-ink bg-brutes-yellow px-4 py-5 font-semibold text-brutes-ink shadow-[4px_4px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-white md:w-auto"
+            aria-label="Partager sur WhatsApp"
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 4A11 11 0 0 0 4.4 19.6L3 22l2.5-.7A11 11 0 1 0 20 4zm-8 18a9 9 0 0 1-4.6-1.3l-.3-.2-2.5.7.7-2.4-.2-.3A9 9 0 1 1 12 22zm5-7c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.7-3.4-.3-.5.3-.4.8-1.4.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.6.7.6-.1 1.6-.7 1.9-1.3.2-.7.2-1.2.1-1.3 0-.1-.3-.2-.6-.3z"/>
+            </svg>
+            <span class="text-sm">WhatsApp</span>
+          </button>
+
+          <button
+            data-share="mail"
+            data-track="share"
+            data-channel="mail"
+            type="button"
+            class="share-btn flex w-40 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border-4 border-brutes-ink bg-brutes-red px-4 py-5 font-semibold text-brutes-cream shadow-[4px_4px_0_0_#1A1A1A] transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-white md:w-auto"
+            aria-label="Partager par mail"
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3 7 9 6 9-6"/>
+            </svg>
+            <span class="text-sm">Mail</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Liens utiles -->
+    <section aria-labelledby="links-title" class="border-b-4 border-brutes-ink bg-brutes-cream">
+      <div class="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
+        <h2 id="links-title" class="reveal font-display text-4xl font-extrabold md:text-5xl">
+          Plus d’infos
+        </h2>
+
+        <ul class="reveal mt-8 divide-y-2 divide-brutes-ink/90 border-y-4 border-brutes-ink" data-delay="1">
+          <li>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.salonbrutes.com/infos-pratiques-1" class="group flex items-center justify-between gap-4 py-5 font-display text-2xl font-bold transition-colors hover:bg-brutes-yellow focus-visible:bg-brutes-yellow focus:outline-none md:text-3xl px-2">
+              <span>Infos pratiques du salon</span>
+              <svg class="transition-transform group-hover:translate-x-1" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.salonbrutes.com/exposants-extra-brutes-2026" class="group flex items-center justify-between gap-4 py-5 font-display text-2xl font-bold transition-colors hover:bg-brutes-yellow focus-visible:bg-brutes-yellow focus:outline-none md:text-3xl px-2">
+              <span>Exposants</span>
+              <svg class="transition-transform group-hover:translate-x-1" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.salonbrutes.com/copie-de-c-est-quoi-c-est-qui" class="group flex items-center justify-between gap-4 py-5 font-display text-2xl font-bold transition-colors hover:bg-brutes-yellow focus-visible:bg-brutes-yellow focus:outline-none md:text-3xl px-2">
+              <span>À propos de Brut(es)</span>
+              <svg class="transition-transform group-hover:translate-x-1" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.salonbrutes.com/contact" class="group flex items-center justify-between gap-4 py-5 font-display text-2xl font-bold transition-colors hover:bg-brutes-yellow focus-visible:bg-brutes-yellow focus:outline-none md:text-3xl px-2">
+              <span>Contact</span>
+              <svg class="transition-transform group-hover:translate-x-1" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/salonbrutes/" class="group flex items-center justify-between gap-4 py-5 font-display text-2xl font-bold transition-colors hover:bg-brutes-yellow focus-visible:bg-brutes-yellow focus:outline-none md:text-3xl px-2">
+              <span>Instagram @salonbrutes</span>
+              <svg class="transition-transform group-hover:translate-x-1" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-brutes-ink text-brutes-cream">
+    <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-5 py-8 md:flex-row md:items-center md:px-8">
+      <p class="brand-title font-display text-xl font-extrabold">RADIO EXTRA-BRUT(ES)</p>
+      <p class="text-sm text-brutes-cream/70 md:text-right">
+        Radio et programmation musicale imaginées par
+        <a
+          href="https://www.instagram.com/grandsoirdjs/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-semibold text-brutes-cream underline decoration-brutes-cream/40 decoration-2 underline-offset-2 hover:decoration-brutes-cream focus:outline-none focus-visible:decoration-brutes-yellow"
+        >@grandsoirdjs</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Toast container -->
+  <div
+    id="toast"
+    role="status"
+    class="pointer-events-none fixed inset-x-0 bottom-6 z-50 flex justify-center px-4 opacity-0 transition-opacity"
+  >
+    <div
+      id="toast-inner"
+      class="pointer-events-auto rounded-full border-2 border-brutes-ink bg-brutes-ink px-5 py-3 text-sm font-semibold text-brutes-cream shadow-[4px_4px_0_0_#F4C430]"
+    >
+      Lien copié
+    </div>
+  </div>
+
+  <!-- Page logic : reveal-on-scroll + share buttons. Pas de player, pas d'embed. -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ---- Partage : URL + textes adaptés post-festival ----
+      var SHARE_URL     = 'https://salonbrutes.com/radio';
+      var SHARE_MESSAGE = 'Le replay des interviews de Radio Extra-BRUT(es) arrive bientôt. ' + SHARE_URL;
+      var SHARE_SUBJECT = 'Radio Extra-BRUT(es) — les interviews bientôt en replay';
+
+      // ---- Toast minimal (réutilisé pour le retour de copie Instagram) ----
+      var toast      = document.getElementById('toast');
+      var toastInner = document.getElementById('toast-inner');
+      var toastTimer = null;
+      function showToast(message) {
+        if (!toast || !toastInner) return;
+        toastInner.textContent = message;
+        toast.style.opacity = '1';
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.style.opacity = '0'; }, 2400);
+      }
+
+      // ---- Copie presse-papier avec fallback execCommand ----
+      async function copyToClipboard(text) {
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+            return true;
+          }
+        } catch (e) { /* fallback */ }
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+        document.body.removeChild(ta);
+        return ok;
+      }
+
+      // ---- Boutons de partage ----
+      document.querySelectorAll('.share-btn').forEach(function (btn) {
+        btn.addEventListener('click', async function () {
+          var kind = btn.dataset.share;
+          if (kind === 'facebook') {
+            window.open(
+              'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL),
+              '_blank', 'noopener,noreferrer'
+            );
+          } else if (kind === 'whatsapp') {
+            window.open(
+              'https://wa.me/?text=' + encodeURIComponent(SHARE_MESSAGE),
+              '_blank', 'noopener,noreferrer'
+            );
+          } else if (kind === 'mail') {
+            var subject = encodeURIComponent(SHARE_SUBJECT);
+            var body    = encodeURIComponent(SHARE_MESSAGE);
+            window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+          } else if (kind === 'instagram') {
+            var ok = await copyToClipboard(SHARE_URL);
+            showToast(ok ? 'Lien copié — collez-le dans votre story' : 'Impossible de copier le lien');
+          }
+        });
+      });
+
+      // ---- Reveal on scroll ----
+      function initReveal() {
+        var targets = document.querySelectorAll('.reveal');
+        if (!targets.length) return;
+        var revealAll = function () {
+          targets.forEach(function (el) { el.classList.add('is-revealed'); });
+        };
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduced || !('IntersectionObserver' in window)) { revealAll(); return; }
+
+        var io = new IntersectionObserver(function (entries) {
+          for (var i = 0; i < entries.length; i++) {
+            var entry = entries[i];
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              io.unobserve(entry.target);
+            }
+          }
+        }, { threshold: 0.08, rootMargin: '0px 0px -10% 0px' });
+
+        targets.forEach(function (el) { io.observe(el); });
+
+        // Filet de sécurité (2.5 s) : aucune section ne doit rester invisible.
+        setTimeout(function () {
+          targets.forEach(function (el) {
+            if (!el.classList.contains('is-revealed')) el.classList.add('is-revealed');
+          });
+        }, 2500);
+      }
+      initReveal();
+    })();
+  </script>
+</body>
+</html>
