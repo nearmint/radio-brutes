@@ -20,7 +20,7 @@
 
 The project is built by a three-person volunteer team. This repository hosts the **public-facing site** — the frontend that listeners land on when they want to tune in, browse the schedule, or share the stream.
 
-This document documents not only the code in this repo but also the cloud infrastructure behind it — because the product decision that matters here is the **whole chain**, from a turntable needle in Normandy to a listener's browser anywhere.
+This document covers not only the code in this repo but also the cloud infrastructure behind it — because the product decision that matters here is the **whole chain**, from a turntable needle in Normandy to a listener's browser anywhere.
 
 ---
 
