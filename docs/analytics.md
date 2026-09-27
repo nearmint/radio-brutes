@@ -2,7 +2,7 @@
 
 `index.html` (post-event page) uses `tracking-after.js`, which only emits `share_click` and `schedule_view`.
 
-Audience is measured with [Umami Cloud](https://cloud.umami.is/) (free tier, no cookies). The Umami snippet is loaded on `index.html`, `live.html` and `embed.html`; custom events are centralised in [`tracking.js`](../tracking.js) (vanilla JS, classic script, loaded `defer` right after the Umami snippet on each page).
+Audience is measured with [Umami Cloud](https://cloud.umami.is/) (free tier, no cookies). The Umami snippet is loaded on `waiting.html`, `live.html`, `index.html` and `embed.html`; custom events are centralised in [`tracking.js`](../tracking.js) (vanilla JS, classic script, loaded `defer` right after the Umami snippet on each page).
 
 ## Hosting & privacy
 
